@@ -1,0 +1,86 @@
+- name: Configure Minecraft server with Docker
+  hosts: minecraft
+  become: yes
+  tasks:
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Start Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add ec2-user to docker group
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes
+
+    - name: Add minecraft user
+      user:
+        name: minecraft
+        state: present
+        create_home: yes
+
+    - name: Pull Minecraft Docker image
+      docker_image:
+        name: itzg/minecraft-server
+        source: pull
+
+    - name: Create Minecraft server directory
+      file:
+        path: /opt/minecraft
+        state: directory
+        owner: minecraft
+        group: minecraft
+        mode: '0755'
+
+    - name: Create data directory for Minecraft
+      file:
+        path: /opt/minecraft/data
+        state: directory
+        owner: minecraft
+        group: minecraft
+        mode: '0755'
+
+    - name: Start Minecraft server using Docker
+      command: >
+        docker run -d --name minecraft
+        -e EULA=TRUE
+        -e MEMORY=1G
+        -p 25565:25565
+        -v /opt/minecraft/data:/data
+        itzg/minecraft-server
+      args:
+        chdir: /opt/minecraft
+
+    - name: Create systemd service file for Minecraft server
+      copy:
+        dest: /etc/systemd/system/minecraft.service
+        content: |
+          [Unit]
+          Description=Minecraft Server
+          After=docker.service network.target
+
+          [Service]
+          Restart=always
+          ExecStart=/usr/bin/docker start -a minecraft
+          ExecStop=/usr/bin/docker stop -t 2 minecraft
+
+          [Install]
+          WantedBy=multi-user.target
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Reload systemd to read the newly created service unit file
+      command: systemctl daemon-reload
+
+    - name: Enable the Minecraft service to start on boot
+      systemd:
+        name: minecraft
+        enabled: yes
+        state: started
