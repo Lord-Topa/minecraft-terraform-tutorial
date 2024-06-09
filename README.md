@@ -4,8 +4,9 @@
 ```mermaid
 graph TD
     A[Setup] --> B[AWS CLI setup]
-    B --> C[Scripts Galore]
-    C --> D[Conclusion]
+    B --> C[Run terraform scripts]
+    C --> D[Run ansible playbook]
+    D --> E[Play]
 
 ```
 
