@@ -1,5 +1,19 @@
 # minecraft-terraform-tutorial
 
+```mermaid
+graph TD
+    A[Setup] --> B[AWS CLI setup]
+    B --> C[Scripts Galore]
+    C --> D[Conclusion]
+    D --> E[Resources/Sources used]
+
+    click A href "github.com/Lord-Topa/minecraft-terraform-tutorial/blob/main/README.md#setup"
+    click B href "#aws-cli-setup"
+    click C href "#scripts-galore"
+    click D href "#conclusion"
+    click E href "#resources-sources-used"
+```
+
 ## Setup
 This tutorial uses already some established resources (security group, key pair, and VPC). If you do not understand what those are or how to get them read up to the **Server Setup** section in [this](manual_tutorial/minecraft-server-tutorial.md) tutorial.
 
@@ -59,3 +73,6 @@ For the ip it will be something similar to this based on your region and IP assi
     ec2-XXX-XXX-XXX-XXX.us-west-2.compute.amazonaws.com
 
 **Note:** If you changed the region of the server the IP you connect to should reflect that.
+
+## Resources/Sources used
+[1] Chatgpt, https://openai.com/chatgpt/ (accessed Jun. 8, 2024).
