@@ -14,7 +14,7 @@ data "aws_key_pair" "existing" {
 }
 
 resource "aws_instance" "minecraft_server" {
-  ami           = "ami-05a6dba9ac2da60cb"  # Amazon Linux 2 AMI (64-bit x86)
+  ami           = "ami-05a6dba9ac2da60cb"  # Amazon Linux 2 AMI (64-bit ARM)
   instance_type = "t4g.small"
   key_name      = data.aws_key_pair.existing.key_name
 
