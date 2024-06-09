@@ -1,5 +1,6 @@
 # minecraft-terraform-tutorial
 
+## Diagram
 ```mermaid
 graph TD
     A[Setup] --> B[AWS CLI setup]
@@ -7,11 +8,6 @@ graph TD
     C --> D[Conclusion]
     D --> E[Resources/Sources used]
 
-    click A href "github.com/Lord-Topa/minecraft-terraform-tutorial/blob/main/README.md#setup"
-    click B href "#aws-cli-setup"
-    click C href "#scripts-galore"
-    click D href "#conclusion"
-    click E internal "#resources-sources-used"
 ```
 
 ## Setup
@@ -29,12 +25,12 @@ On top of having a security group, key pair, and VPC set up you will also need s
 1. Create a file ~/.aws/credentials
 2. Get your AWS credentials.(aws_access_key, aws_secret_access_key, aws_session_token).
 3. Paste them into the file it should look something like this:
-
-    > [defaut]
-    >
-    > aws_access_key_id=ABUNCHOFCHARACTERS
-    >aws_secret_access_key=ABUNCHMORECHARACTERS
-    >aws_session_token=AMETRICF**KTONOFCHARACTERSTHATWILLTAKEUPALOTOFSPACE
+```text
+[defaut]   
+aws_access_key_id=ABUNCHOFCHARACTERS
+aws_secret_access_key=ABUNCHMORECHARACTERS
+aws_session_token=AMETRICF**KTONOFCHARACTERSTHATWILLTAKEUPALOTOFSPACE
+```
 4. Save the file.
 
    
