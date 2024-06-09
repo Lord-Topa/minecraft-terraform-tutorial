@@ -6,7 +6,6 @@ graph TD
     A[Setup] --> B[AWS CLI setup]
     B --> C[Scripts Galore]
     C --> D[Conclusion]
-    D --> E[Resources/Sources used]
 
 ```
 
