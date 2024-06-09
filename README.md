@@ -1,7 +1,7 @@
 # minecraft-terraform-tutorial
 
 ## Setup
-This tutorial uses already some established resources (security group, key pair, and VPC). If you do not understand what those are or how to get them read up to the **Server Setup** section in [this]() tutorial.
+This tutorial uses already some established resources (security group, key pair, and VPC). If you do not understand what those are or how to get them read up to the **Server Setup** section in [this](manual_tutorial/minecraft-server-tutorial.md) tutorial.
 
 On top of having a security group, key pair, and VPC set up you will also need some software on your local device.
 
@@ -17,6 +17,7 @@ On top of having a security group, key pair, and VPC set up you will also need s
 3. Paste them into the file it should look something like this:
 
     > [defaut]
+    >
     > aws_access_key_id=ABUNCHOFCHARACTERS
     >aws_secret_access_key=ABUNCHMORECHARACTERS
     >aws_session_token=AMETRICF**KTONOFCHARACTERSTHATWILLTAKEUPALOTOFSPACE
