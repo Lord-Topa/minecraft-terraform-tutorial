@@ -11,7 +11,7 @@ graph TD
     click B href "#aws-cli-setup"
     click C href "#scripts-galore"
     click D href "#conclusion"
-    click E href "#resources-sources-used"
+    click E internal "#resources-sources-used"
 ```
 
 ## Setup
